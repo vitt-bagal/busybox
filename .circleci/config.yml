@@ -41,6 +41,7 @@ workflows:
   prometheus:
     jobs:
     - build:
+        context: org-global
         filters:
           branches:
             ignore: master
