@@ -6,7 +6,7 @@ script:
 # prepare qemu
 - uname -m
 #- docker run --rm --privileged multiarch/qemu-user-static:register --reset -p yes
-- docker run --name ubuntu-ssh -p 2222:22 -it durgadas/ubuntu-ssh /bin/bash
+- docker run --name ubuntu-ssh -p 2222:22 -itd durgadas/ubuntu-ssh 
 #- docker run --rm -t s390x/ubuntu uname -m
 #- docker run --privileged linuxkit/binfmt:v0.6
 # build image
