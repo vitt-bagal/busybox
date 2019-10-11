@@ -13,7 +13,7 @@
     - run: uname -a
       # Register binfmt_misc targets for cross-building
     #- run: docker run --privileged linuxkit/binfmt:v0.6
-    - run: docker run --rm --privileged multiarch/qemu-user-static:register --reset
+    - run: docker run --rm --privileged multiarch/qemu-user-static:register
     - run: make
     - run: docker images
 
@@ -27,7 +27,7 @@
         version: 18.06.0-ce
     - run: apk add make bash git
     - run: docker info
-    - run: docker run --rm --privileged multiarch/qemu-user-static:register --reset
+    - run: docker run --rm --privileged multiarch/qemu-user-static:register
     - run: make SUFFIX=
     - run: docker images
     - run: make tag SUFFIX=
