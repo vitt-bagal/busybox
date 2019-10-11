@@ -5,7 +5,7 @@ language: bash
 script:
 # prepare qemu
 - uname -m
-- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+- docker run --rm --privileged multiarch/qemu-user-static:register --reset -p yes
 # build image
 - uname -m
 - make
