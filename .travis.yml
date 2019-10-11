@@ -5,8 +5,9 @@ language: bash
 script:
 # prepare qemu
 - uname -m
-#- docker run --rm --privileged multiarch/qemu-user-static:register --reset -p yes
-- docker run --privileged linuxkit/binfmt:v0.6
+- docker run --rm --privileged multiarch/qemu-user-static:register --reset -p yes
+- docker run --rm -t s390x/ubuntu uname -m
+#- docker run --privileged linuxkit/binfmt:v0.6
 # build image
 - uname -m
 - make
@@ -15,6 +16,6 @@ script:
 - docker images
 - make tag SUFFIX=
 # Pusg images
-- docker login -u $DOCKER_USERNAME bagalvitthal -p $DOCKER_PASSWORD
+- docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 - make push
 - make manifest SUFFIX=
