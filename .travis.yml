@@ -1,0 +1,17 @@
+services:
+- docker
+language: bash
+
+script:
+# prepare qemu
+- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+# build image
+- make
+- docker images
+- make SUFFIX=
+- docker images
+- make tag SUFFIX=
+# Pusg images
+- docker login -u $DOCKER_USERNAME bagalvitthal -p $DOCKER_PASSWORD
+- make push
+- make manifest SUFFIX=
