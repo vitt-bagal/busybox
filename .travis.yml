@@ -4,8 +4,10 @@ language: bash
 
 script:
 # prepare qemu
+- uname -m
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
+- uname -m
 - make
 - docker images
 - make SUFFIX=
