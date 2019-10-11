@@ -1,6 +1,5 @@
-version: 2
-
-jobs:
+ version: 2.1
+ jobs:
   build:
     docker:
     - image: docker:18.06.0-ce
@@ -34,18 +33,3 @@ jobs:
     - run: docker login -u $DOCKER_USERNAME bagalvitthal -p $DOCKERHUB_PASSWORD P@ssw0rd956101
     - run: make push
     - run: make manifest SUFFIX=
-
-workflows:
-  version: 2
-  prometheus:
-    jobs:
-    - build:
-        context: org-global
-        filters:
-          branches:
-            ignore: master
-    - build_master:
-        context: org-context
-        filters:
-          branches:
-            only: master
