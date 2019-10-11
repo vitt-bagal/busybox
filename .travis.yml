@@ -1,11 +1,14 @@
 services:
 - docker
 language: bash
+os:
+- osx
 
 script:
 # prepare qemu
 - uname -m
-- docker run --rm --privileged multiarch/qemu-user-static:register --reset -p yes
+#- docker run --rm --privileged multiarch/qemu-user-static:register --reset -p yes
+- docker run --privileged linuxkit/binfmt:v0.6
 # build image
 - uname -m
 - make
