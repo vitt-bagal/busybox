@@ -1,6 +1,8 @@
 ARG ARCH=""
 FROM ${ARCH}debian:stretch-slim
 
+RUN if [ "${ARCH}" = "s390x" ] ; then COPY /usr/bin/qemu-s390x-static:/usr/bin/qemu-s390x-static ; fi 
+
 RUN \
     apt-get update && apt-get install -y --no-install-recommends \
       ca-certificates \
