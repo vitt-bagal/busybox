@@ -1,7 +1,8 @@
 services:
 - docker
 language: bash
-sudo: false
+sudo: required
+dist: xenial
 
 script:
 # prepare qemu
