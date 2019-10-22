@@ -1,11 +1,12 @@
 services:
 - docker
 language: bash
+sudo: false
 
 script:
 # prepare qemu
 - uname -m
-- apt install -y qemu qemu-user-static qemu-user binfmt-support crossbuild-essential* pkg-config-s390x-linux-gnu
+- sudo apt install -y qemu qemu-user-static qemu-user binfmt-support crossbuild-essential* pkg-config-s390x-linux-gnu
 - docker run --rm --privileged multiarch/qemu-user-static:register
 #- docker run --name ubuntu-ssh -p 2222:22 -itd durgadas/ubuntu-ssh 
 #- docker run --rm -t s390x/ubuntu uname -m
