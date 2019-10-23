@@ -25,7 +25,7 @@ build:
 	@./build.sh "$(REPOSITORY)/$(NAME)-linux-amd64" "" "$(SUFFIX)" $(VERSIONS)
 	@./build.sh "$(REPOSITORY)/$(NAME)-linux-armv7" "arm32v7/" "$(SUFFIX)" $(VERSIONS)
 	@./build.sh "$(REPOSITORY)/$(NAME)-linux-arm64" "arm64v8/" "$(SUFFIX)" $(VERSIONS)
-	# uclibc doens't support ppc64le
+	# uclibc doens't support ppc64le, s390x
 	@./build.sh "$(REPOSITORY)/$(NAME)-linux-ppc64le" "ppc64le/" "$(SUFFIX)" glibc
 	@./build.sh "$(REPOSITORY)/$(NAME)-linux-s390x" "s390x/" "$(SUFFIX)" glibc
 
@@ -60,7 +60,7 @@ manifest:
 		"$(REPOSITORY)/$(NAME)-linux-amd64:latest" \
 		"$(REPOSITORY)/$(NAME)-linux-armv7:latest" \
 		"$(REPOSITORY)/$(NAME)-linux-arm64:latest" \
-		"$(REPOSITORY)/$(NAME)-linux-ppc64le:latest" \ 
+		"$(REPOSITORY)/$(NAME)-linux-ppc64le:latest" \
 		"$(REPOSITORY)/$(NAME)-linux-s390x:latest"
 	DOCKER_CLI_EXPERIMENTAL=enabled docker manifest push "$(REPOSITORY)/$(NAME):latest"
 
@@ -69,6 +69,6 @@ push:
 	@./push.sh "$(REPOSITORY)/$(NAME)-linux-amd64" "" "$(SUFFIX)" $(VERSIONS)
 	@./push.sh "$(REPOSITORY)/$(NAME)-linux-armv7" "arm32v7/" "$(SUFFIX)" $(VERSIONS)
 	@./push.sh "$(REPOSITORY)/$(NAME)-linux-arm64" "arm64v8/" "$(SUFFIX)" $(VERSIONS)
-	# uclibc doens't support ppc64le
+	# uclibc doens't support ppc64le, s390x
 	@./push.sh "$(REPOSITORY)/$(NAME)-linux-ppc64le" "ppc64le/" "$(SUFFIX)" glibc
 	@./push.sh "$(REPOSITORY)/$(NAME)-linux-s390x" "s390x/" "$(SUFFIX)" glibc
