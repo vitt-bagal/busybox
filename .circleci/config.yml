@@ -12,9 +12,9 @@
     - run: docker info
     - run: uname -a
       # Register binfmt_misc targets for cross-building
-    #- run: docker run --privileged linuxkit/binfmt:v0.6
+    - run: docker run --privileged linuxkit/binfmt:v0.7
     # Register qemu
-    - run: docker run --rm --privileged multiarch/qemu-user-static:register
+    #- run: docker run --rm --privileged multiarch/qemu-user-static:register
     - run: make
     - run: docker images
 
