@@ -1,7 +1,7 @@
 ARG ARCH=""
 FROM ${ARCH}debian:stretch-slim
 
-COPY /usr/bin/qemu-s390x-static /usr/bin/
+#COPY /usr/bin/qemu-s390x-static /usr/bin/
 #RUN if [ "${ARCH}" = "s390x" ] ; then COPY /usr/bin/qemu-s390x-static:/usr/bin/qemu-s390x-static ; fi 
 
 RUN \
